@@ -3,25 +3,26 @@
 ## Normalization Analysis
 
 ### 1NF Conversion
-(TName, Location, Phone, MTitle, ShowTime, Rating, Ccode, CName)
-Theater(TName,LoCation,Phone)
-Movie(MTitle, ShowTime,Rating)
-Credit(Ccode,CName)
+Database(ID,TName, Location, Phone, MTitle, ShowTime, Rating, Ccode, CName, BIO)
+
 ### 2NF Conversion
+Already done in 1NF
 TName --> Location, Phone
 MTile --> rating
-TName,MTile --> ShowTime
-MTile,CName --> Ccode
+
 Theater(ID,TName,Location,Phone)
 Movie(ID,MTitle,Rating)
-Show(ID,MTitle,ShowTime,TName)
-CCode(ID,CName,Ccode,MTitle)
+
 ### 3NF Conversion
-Theater(ID,Name,Location,Phone)
-Movie(ID,Title,Rating)
-Show(ID,ShowTime, titleID, TNameID)
-Credit(ID,Ccode, ArtistID, MovieID)
-Artist(ID, Name)
+Already done in 2NF
+[TName,TTitle]-->Showtime
+MTitle -->--> [Ccode,CName]
+Showtime(SID,TheaterID,ShowTime,MovieID)
+Credit(CID,MovieID, AID, Ccode)
+Artist(AID, Name, Bio)
+### BCNF
+Already done in 3NF
+
 
 ## Entity Relationship Model.
-  MovieTonightsERD.png
+![alt](MovieTonightsERD.png)
